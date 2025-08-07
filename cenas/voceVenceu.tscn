@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://uq122bvqesut"]
+
+[ext_resource type="Script" path="res://cenas/voceVenceu.gd" id="1_3ijye"]
+[ext_resource type="FontFile" uid="uid://dntuvuxb1ygqy" path="res://fonts/atari-classic-font/AtariClassic-gry3.ttf" id="2_sx2ww"]
+
+[node name="voceVenceu" type="Node2D"]
+script = ExtResource("1_3ijye")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 31.0
+offset_top = 80.0
+offset_right = 223.0
+offset_bottom = 103.0
+theme_override_fonts/font = ExtResource("2_sx2ww")
+text = "VOCÊ
+VENCEU!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btnRestart" type="Button" parent="."]
+offset_left = 87.0
+offset_top = 136.0
+offset_right = 167.0
+offset_bottom = 152.0
+theme_override_fonts/font = ExtResource("2_sx2ww")
+theme_override_font_sizes/font_size = 8
+text = "REINICIAR"
+
+[connection signal="pressed" from="btnRestart" to="." method="_on_btn_restart_pressed"]

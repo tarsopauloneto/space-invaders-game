@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5w6y8hf3owh1"]
+
+[ext_resource type="Script" path="res://cenas/missil.gd" id="1_1iesb"]
+[ext_resource type="Texture2D" uid="uid://db1nito4m5jca" path="res://Sprites/disparoEnemigo.png" id="1_xhhu4"]
+[ext_resource type="AudioStream" uid="uid://bxiq3fpx4d3hk" path="res://sfx/explosion.wav" id="3_scmfq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlkyc"]
+size = Vector2(3, 7)
+
+[node name="missil" type="Area2D" groups=["misseis"]]
+script = ExtResource("1_1iesb")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xhhu4")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xlkyc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_scmfq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

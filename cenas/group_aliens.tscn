@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dubelwy0m8ihf"]
+
+[ext_resource type="Script" path="res://cenas/group_aliens.gd" id="1_74sjg"]
+[ext_resource type="AudioStream" uid="uid://db0g6yis112yo" path="res://sfx/fastinvader1.wav" id="2_p2oje"]
+
+[node name="groupAliens" type="Node"]
+script = ExtResource("1_74sjg")
+
+[node name="timerDescida" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[node name="timerDisparar" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="timerBonus" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_p2oje")
+
+[connection signal="timeout" from="timerDescida" to="." method="_on_timer_descida_timeout"]
+[connection signal="timeout" from="timerDisparar" to="." method="_on_timer_disparar_timeout"]
+[connection signal="timeout" from="timerBonus" to="." method="_on_timer_bonus_timeout"]
